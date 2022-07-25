@@ -1,0 +1,61 @@
+<div class="container-fluid  mt-4 container-urna">
+  <div class="container-fluid urna-eletronica">
+
+      <app-msg-fim-voto class="urna-tela" *ngIf="flagFimVotacao"></app-msg-fim-voto>
+
+      <button type="button" class="btn btn btn-success w-50 md-form"
+        (click)="reiniciarVotacao()" *ngIf="flagFimVotacao">Reiniciar votação</button>
+
+      <div class="urna-tela" *ngIf="!flagFimVotacao">
+          <div class="urna-tela-seu-voto mb-2">SEU VOTO PARA</div>
+          <div class="urna-tela-tipo text-center mb-4">PRESIDENTE</div>
+        <div class="urna-tela-legenda" *ngIf="!flagVoteWhite">
+          Número:
+          <div class="urna-tela-legenda-num">{{dig1}}</div>
+          <div class="urna-tela-legenda-num">{{dig2}}</div>
+        </div>
+
+        <app-info-candidate [candidateInput]="candidate" *ngIf="flagCandidatoExist"></app-info-candidate>
+        <app-msg-voto-nulo *ngIf="flagVoteNull"></app-msg-voto-nulo>
+        <app-msg-voto-branco *ngIf="flagVoteWhite"></app-msg-voto-branco>
+      </div>
+
+      <div class="urna-teclado my-auto">
+
+          <div class="logo-teclado">
+              <img [src]="'assets/img/logo-justica.jpg'" alt="">
+              <span>Justiça Eleitoral</span>
+          </div>
+
+          <div class="urna-teclado-numeros">
+
+              <div class="teclado-row">
+                  <button (click)="typedNumber('1')">1</button>
+                  <button (click)="typedNumber('2')">2</button>
+                  <button (click)="typedNumber('3')">3</button>
+              </div>
+              <div class="teclado-row">
+                  <button (click)="typedNumber('4')">4</button>
+                  <button (click)="typedNumber('5')">5</button>
+                  <button (click)="typedNumber('6')">6</button>
+              </div>
+              <div class="teclado-row">
+                  <button (click)="typedNumber('7')">7</button>
+                  <button (click)="typedNumber('8')">8</button>
+                  <button (click)="typedNumber('9')">9</button>
+              </div>
+              <div class="teclado-row">
+                  <button (click)="typedNumber('0')">0</button>
+              </div>
+          </div>
+
+          <div class="urna-teclado-acoes">
+              <button class="btn-branco" (click)="voteWhite()">BRANCO</button>
+              <button class="btn-corrige" (click)="clean()">CORRIGE</button>
+              <button class="btn-confirma" (click)="confirmVote()">CONFIRMA</button>
+          </div>
+
+      </div>
+
+  </div>
+</div>

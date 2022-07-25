@@ -1,0 +1,20 @@
+:host{
+  height: 264px !important;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.urna-tela-vote-null{
+  font-size: 20px;
+  margin-top: 20px;
+  margin-right:10px;
+}
+
+.text-vote-null{
+  margin: 10px 0 0 0;
+  padding: 0;
+  text-align: center;
+  vertical-align: bottom;
+  justify-content: end;
+}

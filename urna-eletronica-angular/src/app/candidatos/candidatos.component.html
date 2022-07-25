@@ -1,0 +1,77 @@
+<ng-container *ngComponentOutlet="backdrop"></ng-container>
+
+<app-title-page [title]="title"></app-title-page>
+
+<div *ngIf="loading" class="loading text-center">loading...</div>
+
+<div *ngIf="!loading">
+
+  <div *ngIf="!newCandidateFlag">
+
+    <button class="btn btn-success md-form mt-2" (click)="newCandidateBtnClick(true)">Incluir Candidato</button>
+
+    <table class="table table-bordered text-light mt-4" style="border-color: rgba(193, 193, 193, 0.218);">
+      <thead>
+        <tr class="text-center bg-black">
+          <th scope="col">Id</th>
+          <th scope="col">Presidente</th>
+          <th scope="col">Vice Presidente</th>
+          <th scope="col">Legenda</th>
+          <th scope="col">Partido</th>
+          <th scope="col">Ações</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="text-center" *ngFor="let cand of candidates">
+          <th scope="row">{{cand.id}}</th>
+          <td>{{cand.candidateName}}</td>
+          <td>{{cand.viceName}}</td>
+          <td>{{cand.legenda}}</td>
+          <td>{{cand.partido}}</td>
+          <td><i class="bi bi-trash3 btn-delete" (click)="deleteCandidate(cand.id)"></i></td>
+        </tr>
+
+      </tbody>
+    </table>
+  </div>
+
+</div>
+
+
+<div *ngIf="newCandidateFlag" class="container-fluid d-flex justify-content-center">
+
+  <form class="form-cadastro mt-4" [formGroup]="candidateForm">
+    <div class="form-group mb-4">
+      <label>Nome do Candidato</label>
+      <input type="text" class="form-control mt-1" formControlName="candidateName">
+    </div>
+
+    <div class="form-group mb-4">
+      <label>Nome do Vice Candidato</label>
+      <input type="text" class="form-control mt-1" formControlName="viceName">
+    </div>
+
+    <div class="form-row d-flex">
+      <div class="col md-form">
+        <label>Legenda</label>
+        <input type="text" onkeypress="return event.charCode >= 48 && event.charCode <= 57" minlength="2" maxlength="2"
+          class="form-control mb-4  mt-1" formControlName="legenda">
+      </div>
+      <div class="col">
+        <label>Partido</label>
+        <input type="text" class="form-control mb-4 mt-1 input-partido" formControlName="partido">
+      </div>
+    </div>
+    <div class="form-row d-flex mt-3">
+      <div class="col md-form">
+        <button type="button" class="btn btn-danger btn btn-success w-100 md-form"
+          (click)="newCandidateBtnClick(false)">Cancelar</button>
+      </div>
+      <div class="col">
+        <button class="btn btn-success w-100 md-form" (click)="createCandidate()">Cadastrar</button>
+      </div>
+    </div>
+    <div class="container-fluid mt-4 msg-error visually-hidden" #error>{{errorMessage}}</div>
+  </form>
+
+</div>

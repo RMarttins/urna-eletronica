@@ -1,0 +1,13 @@
+.obs-tela{
+  display: flex;
+  flex-direction: column;
+  border-top: 2px solid black;
+  color: black;
+  font-weight: bold;
+  vertical-align: bottom;
+  margin-top: 40px;
+}
+
+.ml-span{
+  margin-left: 10px;
+}

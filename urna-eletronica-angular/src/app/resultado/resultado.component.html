@@ -1,0 +1,32 @@
+<app-title-page [title]="title"></app-title-page>
+
+
+<div *ngIf="loading" class="loading">loading...</div>
+<div *ngIf="!loading" class="w-100">
+  <table class="table table-bordered mt-4" style="border-color: rgba(193, 193, 193, 0.218);">
+    <thead>
+      <tr class="text-center bg-black text-light">
+        <th scope="col">Presidente</th>
+        <th scope="col">Vice Presidente</th>
+        <th scope="col">Legenda</th>
+        <th scope="col">Partido</th>
+        <th scope="col">Total de Votos</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="text-center text-light" *ngFor="let vote of votes">
+        <th scope="row">{{vote.president}}</th>
+        <td>{{vote.vicePresident}}</td>
+        <td>{{vote.legenda}}</td>
+        <td>{{vote.partido}}</td>
+        <td>{{vote.totalVotes}}</td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="container-fluid resultvotes">
+    <div>Votos Válidos: <span class="fontresult">{{totalValidos}}</span></div>
+    <div>Votos em Branco: <span class="fontresult">{{totalBrancos}}</span></div>
+    <div>Votos Nulos: <span class="fontresult">{{totalNulos}}</span></div>
+  </div>
+
+</div>
