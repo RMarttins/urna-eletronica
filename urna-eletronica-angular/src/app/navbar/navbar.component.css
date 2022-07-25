@@ -1,0 +1,56 @@
+header {
+  width: 100%;
+}
+
+header .nav-top {
+  background-color: #000;
+  height: 60px;
+  padding: 0 15px;
+}
+
+.i-toggler {
+  position:absolute;
+  visibility: hidden;
+  font-size: 30px;
+  color: aliceblue !important;
+  z-index: 1000;
+}
+
+.strong1, .strong2 {
+  margin: 0;
+  padding: 0;
+  font-weight: bold;
+  font-size: 25px;
+}
+
+.strong1 {
+  color: rgb(241, 139, 0);
+}
+
+.strong2 {
+  color: rgb(3, 99, 153);
+}
+
+.nav-link{
+  color: #dcdde1;
+  font-weight: bold;
+  margin: 0 15px;
+}
+
+.nav-link:focus {
+  color: rgb(241, 139, 0) !important;
+}
+
+.nav-link:hover {
+  color: rgb(241, 139, 0) !important;
+  font-weight: bolder;
+  transition: 0.4s;
+}
+
+@media(max-width:991px) {
+  .i-toggler {
+      visibility: visible;
+      right: 15px;
+      z-index: 1000;
+  }
+}

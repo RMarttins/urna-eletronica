@@ -1,0 +1,21 @@
+:host{
+  height: 309px !important;
+  display: flex;
+  flex-direction: column;
+}
+
+.text-vote-white{
+  margin: auto;
+  padding: 0;
+}
+
+.msg-conf{
+  align-items: 0;
+  flex-shrink: 0;
+}
+
+.text-votewhite{
+  display: flex;
+  flex-direction: column;
+
+}
